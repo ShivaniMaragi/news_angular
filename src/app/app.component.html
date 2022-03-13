@@ -1,0 +1,41 @@
+
+
+<div class="masonry-demo">
+  <h1>STORIES</h1>
+
+  <table class="story-types">
+    <tr>
+      <td [ngClass]="topStoriesClass ? 'selected': ''" (click)="storyTypeUpdate('topStories')">Top Stories</td>
+      <td [ngClass]="newStoriesClass ? 'selected': ''" (click)="storyTypeUpdate('newStories')">New Stories</td>
+      <td [ngClass]="bestStoriesClass ? 'selected': ''" (click)="storyTypeUpdate('bestStories')">Best Stories</td>
+    </tr>
+    
+  </table>
+
+  <ngx-masonry [options]="masonryOptions" style="position: relative;  width: 90vw;" [ordered]="false" (itemsLoaded)="itemsLoaded()">
+    <div  ngxMasonryItem [prepend]=true *ngFor="let story of masonryImages ;index as idx" style="width: 30%;">
+      <div style="border:1px ;">
+      <div *ngIf="story.image as '../assets/images/download.png';else elseBlock">
+        <div class="container">
+      <img (click)="loadUrl(story.url)" [src]="story.image" width="100%">
+      <div class="text-block">
+        <h4>{{story.title}}</h4>
+      </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>       
+         <img (click)="loadUrl(story.url)" [src]="story.image" width="100%">
+      </ng-template>
+      </div>
+    </div>
+  </ngx-masonry>
+
+  <div *ngIf="isLoading">
+    <img size="10px" src="../assets/images/loading.gif">
+  </div>
+  <button *ngIf="endCount < limit" (click)="showMoreImages()">Show More Images</button>
+  
+  <h2 *ngIf="endCount >= limit">No More Stories Available</h2>
+</div>
+
+<router-outlet></router-outlet>

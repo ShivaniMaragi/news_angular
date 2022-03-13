@@ -1,0 +1,99 @@
+/* .masonry-item { width: 200px; } */
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.masonry-border {
+  border-style: solid 1px 1px 1px 1px;
+}
+.masonry-demo {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+.masonry-item {
+  margin-bottom: 20px;
+  background-color: #f1f1f1;
+  background-size: cover;
+  width: 340px;
+}
+ngx-masonry {
+  margin: 0 auto;
+}
+[_nghost-c1] {
+  display: block;
+}
+button {
+  cursor: pointer;
+  width: 40%;
+  height: 50px;
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 50px;
+}
+
+h1 {
+  display: block;
+  font-size: 3em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  text-align: center;
+  font-family: fantasy;
+}
+
+.container {
+  position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  opacity: 0.8;
+}
+
+.story-types {
+  align-items: center;
+}
+
+table {
+  width: 55%;
+  padding: 20px;
+  position: relative;
+}
+
+td {
+  cursor: pointer;
+  font-family: fantasy;
+  font-size: 2em;
+}
+
+td:hover {
+  text-decoration: underline;
+}
+
+.selected {
+  background: linear-gradient(to right, red 50%, blue 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+}
+
+.loaderImage{
+    height: 100px;
+    width: 200px;
+}

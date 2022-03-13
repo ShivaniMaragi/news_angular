@@ -29,12 +29,11 @@ export class AppComponent {
   newStoriesClass : boolean = false;
   bestStoriesClass : boolean = false;
   isLoading : boolean = false;
-  masonryImages: any = [];
+  stories: any = [];
   startcount:number = 0;
   endCount:number = 15;
 
   loadStoryDetails() {
-    console.log(this.startcount , this.endCount)
     this.isLoading = true;
     this.httpClient
       .get(
@@ -42,7 +41,7 @@ export class AppComponent {
       )
       .subscribe((reseponse) => {
         this.storyDetails = reseponse;
-        this.masonryImages= this.masonryImages.concat(this.storyDetails);
+        this.stories= this.stories.concat(this.storyDetails);
         this.isLoading = false
       });
   }
@@ -53,7 +52,6 @@ export class AppComponent {
       .subscribe((reseponse) => {
         this.topStories = reseponse.toString().split(',').length;
         this.limit = this.topStories
-        console.log(this.topStories)
       });
   }
 
@@ -62,8 +60,6 @@ export class AppComponent {
       .get(`https://express-stories-api.herokuapp.com/getNewStories`)
       .subscribe((reseponse) => {
         this.newStories = reseponse.toString().split(',').length;
-        console.log(this.newStories)
-
       });
   }
 
@@ -75,7 +71,7 @@ export class AppComponent {
       });
   }
   
-  showMoreImages() {
+  showMoreStories() {
     
     this.startcount = this.endCount;
     this.endCount +=15;
@@ -98,14 +94,12 @@ export class AppComponent {
       this.bestStoriesClass = false;
       this.topStoriesClass = false;
       this.limit = this.newStories;
-      console.log(this.bestStoriesClass , this.newStoriesClass,this.topStoriesClass)
     }
     if(type == "bestStories"){
       this.newStoriesClass = false;
       this.bestStoriesClass = true;
       this.topStoriesClass = false;  
       this.limit = this.bestStories;
-      console.log(this.bestStoriesClass , this.newStoriesClass,this.topStoriesClass)
 
      }
     if(type == "topStories"){
@@ -113,12 +107,11 @@ export class AppComponent {
       this.bestStoriesClass = false;
       this.topStoriesClass = true; 
       this.limit=this.topStories;  
-      console.log(this.bestStoriesClass , this.newStoriesClass,this.topStoriesClass)
  
     }
     this.startcount = 0 ;
     this.endCount = 15;
-    this.masonryImages=[];
+    this.stories=[];
     this.loadStoryDetails();
   }
 }

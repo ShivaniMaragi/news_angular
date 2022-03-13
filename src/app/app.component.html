@@ -1,9 +1,9 @@
 
 
-<div class="masonry-demo">
+<div class="story-masonry">
   <h1>STORIES</h1>
 
-  <table class="story-types">
+  <table>
     <tr>
       <td [ngClass]="topStoriesClass ? 'selected': ''" (click)="storyTypeUpdate('topStories')">Top Stories</td>
       <td [ngClass]="newStoriesClass ? 'selected': ''" (click)="storyTypeUpdate('newStories')">New Stories</td>
@@ -12,8 +12,8 @@
     
   </table>
 
-  <ngx-masonry [options]="masonryOptions" style="position: relative;  width: 90vw;" [ordered]="false" (itemsLoaded)="itemsLoaded()">
-    <div  ngxMasonryItem [prepend]=true *ngFor="let story of masonryImages ;index as idx" style="width: 30%;">
+  <ngx-masonry [options]="masonryOptions" style="position: relative;  width: 90vw;" (itemsLoaded)="itemsLoaded()">
+    <div  ngxMasonryItem [prepend]=true *ngFor="let story of stories ;index as idx" style="width: 30%; cursor: pointer;">
       <div style="border:1px ;">
       <div *ngIf="story.image as '../assets/images/download.png';else elseBlock">
         <div class="container">
@@ -31,9 +31,9 @@
   </ngx-masonry>
 
   <div *ngIf="isLoading">
-    <img size="10px" src="../assets/images/loading.gif">
+    <img src="../assets/images/loading.gif">
   </div>
-  <button *ngIf="endCount < limit" (click)="showMoreImages()">Show More Images</button>
+  <button *ngIf="endCount < limit" (click)="showMoreStories()">Show More Stories...</button>
   
   <h2 *ngIf="endCount >= limit">No More Stories Available</h2>
 </div>

@@ -9,19 +9,19 @@ h1 {
   font-weight: bold;
 }
 
-.masonry-border {
-  border-style: solid 1px 1px 1px 1px;
-}
-.masonry-demo {
+
+.story-masonry {
   text-align: center;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
+  /* margin-left: 60px; */
 }
 .masonry-item {
   margin-bottom: 20px;
   background-color: #f1f1f1;
   background-size: cover;
   width: 340px;
+  cursor: pointer;
+
 }
 ngx-masonry {
   margin: 0 auto;
@@ -33,9 +33,11 @@ button {
   cursor: pointer;
   width: 40%;
   height: 50px;
-  background: #f1f1f1;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  color: #f1f1f1;
+  font-size: 1em;
+  font-family: fantasy;
+  background: black;
+  border: 1px solid black;
   margin: 50px;
 }
 
@@ -55,7 +57,6 @@ h1 {
   position: relative;
 }
 
-/* Bottom right text */
 .text-block {
   position: absolute;
   top: 20px;
@@ -67,14 +68,11 @@ h1 {
   opacity: 0.8;
 }
 
-.story-types {
-  align-items: center;
-}
-
 table {
-  width: 55%;
-  padding: 20px;
-  position: relative;
+  margin-left: 60px;
+  margin-bottom: 20px;
+  width: 50%;
+  align-items: center;
 }
 
 td {
@@ -93,7 +91,4 @@ td:hover {
   background-position: left bottom;
 }
 
-.loaderImage{
-    height: 100px;
-    width: 200px;
-}
+
